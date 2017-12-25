@@ -67,10 +67,19 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
 
     private fun addPointForPlayerA(point: Int) {
         scoreCounterPageViewModel.scorePlayerA = scoreCounterPageViewModel.scorePlayerA + point
+        displayPlayerAPoints()
     }
 
     private fun addPointForPlayerB(point: Int) {
         scoreCounterPageViewModel.scorePlayerB = scoreCounterPageViewModel.scorePlayerB + point
+        displayPlayerBPoints()
     }
 
+    private fun displayPlayerAPoints() {
+        tvPlayerAScore.text = scoreCounterPageViewModel.scorePlayerA.toString()
+    }
+
+    private fun displayPlayerBPoints() {
+        tvPlayerBScore.text = scoreCounterPageViewModel.scorePlayerB.toString()
+    }
 }
