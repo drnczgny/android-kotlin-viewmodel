@@ -7,6 +7,115 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="posts page fragment" />
+        android:textColor="@android:color/white"
+        android:text="Score page fragment" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Player A"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/team_a_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="24dp"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/btnTwoPointPlayerA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:textAllCaps="false"
+                android:text="+2 Points" />
+
+            <Button
+                android:id="@+id/btnOnePointPlayerA"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:textAllCaps="false"
+                android:text="+1 point" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:layout_marginTop="16dp" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-medium"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Player B"
+                android:textColor="@android:color/white"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/team_b_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-light"
+                android:gravity="center"
+                android:paddingBottom="24dp"
+                android:text="0"
+                android:textColor="@android:color/white"
+                android:textSize="56sp" />
+
+            <Button
+                android:id="@+id/btnTwoPointPlayerB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:textAllCaps="false"
+                android:text="+2 Points" />
+
+            <Button
+                android:id="@+id/btnOnePointPlayerB"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:textAllCaps="false"
+                android:text="+1 point" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>
