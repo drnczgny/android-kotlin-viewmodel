@@ -13,9 +13,9 @@
         android:text="Hello World!" />
 
     <Button
-        android:id="@+id/btnPostsPage"
+        android:id="@+id/btnGamePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Posts page"/>
+        android:text="Game page"/>
 
 </LinearLayout>

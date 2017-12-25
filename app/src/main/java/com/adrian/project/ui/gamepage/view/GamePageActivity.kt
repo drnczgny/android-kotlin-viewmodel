@@ -4,29 +4,29 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AppCompatActivity
 import com.adrian.project.R
-import com.adrian.project.ui.jsonplaceholder.submodules.postspage.JsonPlaceholderModel
-import com.adrian.project.ui.jsonplaceholder.submodules.postspage.JsonPlaceholderRouter
-import com.adrian.project.ui.jsonplaceholder.submodules.postspage.PostsPageFragment
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.GamePageModel
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.GamePageRouter
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.view.ScoreCounterPageFragment
 import dagger.android.AndroidInjection
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
 import dagger.android.support.HasSupportFragmentInjector
 import javax.inject.Inject
 
-class JsonPlaceholderActivity : AppCompatActivity(), JsonPlaceholderRouter, HasSupportFragmentInjector {
+class GamePageActivity : AppCompatActivity(), GamePageRouter, HasSupportFragmentInjector {
 
     @Inject
     lateinit var fragmentDispatchingAndroidInjector: DispatchingAndroidInjector<Fragment>
 
     @Inject
-    lateinit var jsonPlaceholderModel: JsonPlaceholderModel
+    lateinit var gamePageModel: GamePageModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
-        setContentView(R.layout.activity_posts_page)
+        setContentView(R.layout.activity_game_page)
 
-        jsonPlaceholderModel.callApiService()
+        gamePageModel.callApiService()
 
         openPostsPageFragment(savedInstanceState)
     }
@@ -39,7 +39,7 @@ class JsonPlaceholderActivity : AppCompatActivity(), JsonPlaceholderRouter, HasS
         if (savedInstanceState == null)
             supportFragmentManager
                     .beginTransaction()
-                    .add(R.id.postsPageContainer, PostsPageFragment.newInstance())
+                    .add(R.id.scoreCounterPageContainer, ScoreCounterPageFragment.newInstance())
                     .commitAllowingStateLoss()
     }
 }

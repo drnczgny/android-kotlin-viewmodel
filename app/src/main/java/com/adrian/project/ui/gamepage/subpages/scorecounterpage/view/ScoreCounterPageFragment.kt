@@ -1,4 +1,4 @@
-package com.adrian.project.ui.jsonplaceholder.submodules.postspage
+package com.adrian.project.ui.gamepage.subpages.scorecounterpage.view
 
 import android.content.Context
 import android.os.Bundle
@@ -7,18 +7,19 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.adrian.project.R
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.model.ScoreCounterPageModel
 import dagger.android.support.AndroidSupportInjection
 import javax.inject.Inject
 
 
-class PostsPageFragment : Fragment(), PostsPageRouter {
+class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
 
     @Inject
-    lateinit var postsPageModel: PostsPageModel
+    lateinit var scoreCounterPageModel: ScoreCounterPageModel
 
     companion object {
-        fun newInstance(): PostsPageFragment {
-            val fragment = PostsPageFragment()
+        fun newInstance(): ScoreCounterPageFragment {
+            val fragment = ScoreCounterPageFragment()
 
             return fragment
         }
@@ -34,9 +35,9 @@ class PostsPageFragment : Fragment(), PostsPageRouter {
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        postsPageModel.callApiService()
+        scoreCounterPageModel.callApiService()
 
-        return inflater!!.inflate(R.layout.fragment_posts_page, container, false)
+        return inflater!!.inflate(R.layout.fragment_score_counter, container, false)
     }
 
     override fun onAttach(context: Context?) {

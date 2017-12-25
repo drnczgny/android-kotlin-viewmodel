@@ -55,6 +55,10 @@ dependencies {
     // databinding
     kapt "com.android.databinding:compiler:$android_plugin_version"
 
+    // ViewModel and LiveData
+    implementation "android.arch.lifecycle:extensions:1.0.0"
+    annotationProcessor "android.arch.lifecycle:compiler:1.0.0"
+
     // support lib
     implementation "com.android.support:appcompat-v7:$supportLibraryVersion"
     implementation "com.android.support:design:$supportLibraryVersion"

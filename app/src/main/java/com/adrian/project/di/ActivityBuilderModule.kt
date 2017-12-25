@@ -1,9 +1,9 @@
 package com.adrian.project.di
 
-import com.adrian.project.ui.jsonplaceholder.di.JsonPlaceholderModule
-import com.adrian.project.ui.jsonplaceholder.di.JsonPlaceholderFragmentBuilderModule
-import com.adrian.project.ui.jsonplaceholder.submodules.postspage.di.PostsPageModule
-import com.adrian.project.ui.main.JsonPlaceholderActivity
+import com.adrian.project.ui.gamepage.di.GamePageModule
+import com.adrian.project.ui.gamepage.di.GamePageBuilderModule
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.di.ScoreCounterPageModule
+import com.adrian.project.ui.main.GamePageActivity
 import com.adrian.project.ui.main.view.MainActivity
 import com.adrian.project.ui.main.di.MainModule
 import com.adrian.kotlinrecyclerviewdagger.main.di.ActivityScope
@@ -22,7 +22,7 @@ abstract class ActivityBuilderModule {
     abstract fun bindMainActivity(): MainActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(JsonPlaceholderModule::class, PostsPageModule::class, JsonPlaceholderFragmentBuilderModule::class))
-    abstract fun bindJsonPlaceholderActivity(): JsonPlaceholderActivity
+    @ContributesAndroidInjector(modules = arrayOf(GamePageModule::class, ScoreCounterPageModule::class, GamePageBuilderModule::class))
+    abstract fun bindJsonPlaceholderActivity(): GamePageActivity
 
 }
