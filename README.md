@@ -1,13 +1,4 @@
-# android-kotlin-dagger2-starter
+# android-kotlin-viewmodel
 
-Android kotlin application with dagger2 ContributesAndroidInjector. 
-- two activity and one fragmant build with ContributesAndroidInjector
-- model-s injected to the activity/fragment
-- fake api service is injected to the model-s
-
-ext {
-    supportLibraryVersion = '27.0.0'
-    constraintLayoutVersion = '1.0.2'
-    daggerVersion = '2.11'
-    rxVersion = '2.1.0'
-}
+Simple score counter kotlin application.
+Scores are managed stored with a ViewModel (from android architecture), so user won't loss the state at orientation change.
