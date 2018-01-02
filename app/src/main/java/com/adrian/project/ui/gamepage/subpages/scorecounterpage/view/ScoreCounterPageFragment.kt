@@ -30,9 +30,8 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
         AndroidSupportInjection.inject(this)
+        super.onCreate(savedInstanceState)
 
         if (arguments != null) {
         }
@@ -40,17 +39,19 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_score_counter, container, false)
+        scoreCounterPageViewModel = ViewModelProviders.of(this).get(ScoreCounterPageViewModel::class.java)
         return view
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        scoreCounterPageViewModel = ViewModelProviders.of(this).get(ScoreCounterPageViewModel::class.java)
-        setupView()
+        setupButtonListeners()
+        displayPlayerAPoints()
+        displayPlayerBPoints()
     }
 
-    fun setupView() {
+    fun setupButtonListeners() {
         btnOnePointPlayerA.setOnClickListener() {
             addPointForPlayerA(1)
         }

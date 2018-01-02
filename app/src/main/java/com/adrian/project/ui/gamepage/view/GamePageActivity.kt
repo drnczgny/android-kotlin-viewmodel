@@ -22,8 +22,8 @@ class GamePageActivity : AppCompatActivity(), GamePageRouter, HasSupportFragment
     lateinit var gamePageModel: GamePageModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
         AndroidInjection.inject(this)
+        super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_game_page)
 
         gamePageModel.callApiService()
