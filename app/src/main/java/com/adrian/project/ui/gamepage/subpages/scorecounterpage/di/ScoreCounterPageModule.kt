@@ -1,10 +1,13 @@
 package com.adrian.project.ui.gamepage.subpages.scorecounterpage.di
 
+import android.arch.lifecycle.ViewModelProviders
+import com.adrian.project.MyApplication
 import com.adrian.project.data.ApiService
 import com.adrian.project.scope.FragmentScope
-import com.adrian.project.ui.gamepage.subpages.scorecounterpage.view.ScoreCounterPageFragment
 import com.adrian.project.ui.gamepage.subpages.scorecounterpage.model.ScoreCounterPageModel
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.view.ScoreCounterPageFragment
 import com.adrian.project.ui.gamepage.subpages.scorecounterpage.view.ScoreCounterPageRouter
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.viewmodel.ScoreCounterPageViewModel
 import dagger.Module
 import dagger.Provides
 
@@ -17,10 +20,17 @@ class ScoreCounterPageModule {
 
     @FragmentScope
     @Provides
-    fun providesPostsPageRouter(postsPageFragment: ScoreCounterPageFragment): ScoreCounterPageRouter = postsPageFragment
+    fun providesScorePagePageRouter(scoreCounterPageFragment: ScoreCounterPageFragment): ScoreCounterPageRouter = scoreCounterPageFragment
 
     @FragmentScope
     @Provides
-    fun providesPostsPageModel(apiService: ApiService) = ScoreCounterPageModel(apiService)
+    fun providesScorePagePageModel(apiService: ApiService) = ScoreCounterPageModel(apiService)
 
+    @FragmentScope
+    @Provides
+    fun providesScorePageViewModel(myApplication: MyApplication,
+                                   scoreCounterPageFragment: ScoreCounterPageFragment,
+                                   scoreCounterPageModel: ScoreCounterPageModel): ScoreCounterPageViewModel {
+        return ViewModelProviders.of(scoreCounterPageFragment).get(ScoreCounterPageViewModel::class.java)
+    }
 }

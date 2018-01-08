@@ -4,6 +4,7 @@ import com.adrian.project.MyApplication
 import com.adrian.project.data.ApiService
 import dagger.Module
 import dagger.Provides
+import javax.inject.Named
 import javax.inject.Singleton
 
 /**
@@ -15,6 +16,7 @@ class AppModule {
 
     @Singleton
     @Provides
+    @Named("ApplicationContext")
     fun provideContext(myApplication: MyApplication) = myApplication
 
     @Singleton
