@@ -12,7 +12,11 @@ import com.adrian.project.ui.gamepage.subpages.scorecounterpage.model.ScoreCount
 
 class ScoreCounterPageViewModel constructor(myApplication: Application) : AndroidViewModel(myApplication) {
 
-    constructor(myApplication: MyApplication, scoreCounterPageModel: ScoreCounterPageModel): this(myApplication)
+    lateinit var scoreCounterPageModel: ScoreCounterPageModel
+
+    constructor(myApplication: MyApplication, scoreCounterPageModel: ScoreCounterPageModel): this(myApplication) {
+        this.scoreCounterPageModel = scoreCounterPageModel
+    }
 
     var scorePlayerA: MutableLiveData<Int>
 
@@ -31,5 +35,10 @@ class ScoreCounterPageViewModel constructor(myApplication: Application) : Androi
 
     fun addPointForB(score: Int) {
         scorePlayerB.value = scorePlayerB.value?.plus(score)
+    }
+
+    fun fv() {
+        print("asdasd")
+        scoreCounterPageModel.callApiService()
     }
 }

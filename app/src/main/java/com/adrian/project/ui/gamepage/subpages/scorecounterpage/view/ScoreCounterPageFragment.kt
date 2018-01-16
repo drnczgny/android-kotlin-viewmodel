@@ -9,20 +9,22 @@ import android.view.View
 import android.view.ViewGroup
 import com.adrian.project.R
 import com.adrian.project.ui.gamepage.subpages.scorecounterpage.viewmodel.ScoreCounterPageViewModel
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.viewmodel.ScoreCounterPageViewModelFactory
 import dagger.android.support.AndroidSupportInjection
 import kotlinx.android.synthetic.main.fragment_score_counter.*
+import javax.inject.Inject
 
 
 class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
 
-    // TODO This ViewModel can not instantiate with FragmentScope, beacuse then it will destroy (e.g.: orientation change)
-    // @Inject
+    @Inject
+    lateinit var scoreCounterPageViewModelFactory: ScoreCounterPageViewModelFactory
+
     lateinit var scoreCounterPageViewModel: ScoreCounterPageViewModel
 
     companion object {
         fun newInstance(): ScoreCounterPageFragment {
             val fragment = ScoreCounterPageFragment()
-
             return fragment
         }
     }
@@ -30,14 +32,11 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
     override fun onCreate(savedInstanceState: Bundle?) {
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
-
-        if (arguments != null) {
-        }
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         var view = inflater!!.inflate(R.layout.fragment_score_counter, container, false)
-        scoreCounterPageViewModel = ViewModelProviders.of(this).get(ScoreCounterPageViewModel::class.java)
+        scoreCounterPageViewModel = ViewModelProviders.of(this, scoreCounterPageViewModelFactory).get(ScoreCounterPageViewModel::class.java!!)
         return view
     }
 
@@ -46,6 +45,8 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
 
         setupLiveDataObservers()
         setupButtonListeners()
+
+        scoreCounterPageViewModel.fv()
     }
 
     private fun setupLiveDataObservers() {
