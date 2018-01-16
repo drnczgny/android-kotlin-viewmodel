@@ -30,6 +30,8 @@ class ScoreCounterPageModule {
     @Provides
     fun provideDummyObject() = DummyObject()
 
+    // TODO verify this scope at some time later :)
+    @FragmentScope
     @Provides
     fun provideScorePageViewModelFactory(myApplication: MyApplication, scoreCounterPageModel: ScoreCounterPageModel): ScoreCounterPageViewModelFactory
         = ScoreCounterPageViewModelFactory(myApplication, scoreCounterPageModel)

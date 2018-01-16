@@ -38,7 +38,6 @@ class ScoreCounterPageViewModel constructor(myApplication: Application) : Androi
     }
 
     fun fv() {
-        print("asdasd")
         scoreCounterPageModel.callApiService()
     }
 }
