@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.adrian.project.R
+import com.adrian.project.ui.gamepage.subpages.scorecounterpage.more.DummyObject
 import com.adrian.project.ui.gamepage.subpages.scorecounterpage.viewmodel.ScoreCounterPageViewModel
 import com.adrian.project.ui.gamepage.subpages.scorecounterpage.viewmodel.ScoreCounterPageViewModelFactory
 import dagger.android.support.AndroidSupportInjection
@@ -21,6 +22,9 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
     lateinit var scoreCounterPageViewModelFactory: ScoreCounterPageViewModelFactory
 
     lateinit var scoreCounterPageViewModel: ScoreCounterPageViewModel
+
+    @Inject
+    lateinit var dummyObject: DummyObject
 
     companion object {
         fun newInstance(): ScoreCounterPageFragment {
@@ -47,6 +51,7 @@ class ScoreCounterPageFragment : Fragment(), ScoreCounterPageRouter {
         setupButtonListeners()
 
         scoreCounterPageViewModel.fv()
+        dummyObject.print()
     }
 
     private fun setupLiveDataObservers() {

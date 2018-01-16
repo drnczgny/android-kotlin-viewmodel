@@ -16,6 +16,11 @@
         android:id="@+id/btnGamePage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Game page"/>
+        android:text="Score Game page"/>
 
+    <Button
+        android:id="@+id/btnOtherPage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Other page"/>
 </LinearLayout>

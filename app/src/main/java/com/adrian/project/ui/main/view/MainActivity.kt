@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import com.adrian.project.R
 import com.adrian.project.ui.main.GamePageActivity
 import com.adrian.project.ui.main.model.MainModel
+import com.adrian.project.ui.other.view.OtherPageActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import javax.inject.Inject
 
@@ -19,12 +20,17 @@ class MainActivity : AppCompatActivity(), MainRouter {
 
         mainModel.callApiService()
 
-        btnGamePage.setOnClickListener { openPostsPage() }
+        btnGamePage.setOnClickListener { openGamePage() }
+        btnOtherPage.setOnClickListener { openOtherPage() }
     }
 
-    fun openPostsPage() {
+    fun openGamePage() {
         val intent = android.content.Intent(this, GamePageActivity::class.java)
         startActivity(intent)
     }
 
+    fun openOtherPage() {
+        val intent = android.content.Intent(this, OtherPageActivity::class.java)
+        startActivity(intent)
+    }
 }

@@ -1,12 +1,13 @@
 package com.adrian.project.di
 
-import com.adrian.project.ui.gamepage.di.GamePageModule
-import com.adrian.project.ui.gamepage.di.GamePageBuilderModule
-import com.adrian.project.ui.gamepage.subpages.scorecounterpage.di.ScoreCounterPageModule
-import com.adrian.project.ui.main.GamePageActivity
-import com.adrian.project.ui.main.view.MainActivity
-import com.adrian.project.ui.main.di.MainModule
 import com.adrian.kotlinrecyclerviewdagger.main.di.ActivityScope
+import com.adrian.project.ui.gamepage.di.GamePageBuilderModule
+import com.adrian.project.ui.gamepage.di.GamePageModule
+import com.adrian.project.ui.main.GamePageActivity
+import com.adrian.project.ui.main.di.MainModule
+import com.adrian.project.ui.main.view.MainActivity
+import com.adrian.project.ui.other.di.OtherModule
+import com.adrian.project.ui.other.view.OtherPageActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -22,7 +23,10 @@ abstract class ActivityBuilderModule {
     abstract fun bindMainActivity(): MainActivity
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = arrayOf(GamePageModule::class, ScoreCounterPageModule::class, GamePageBuilderModule::class))
-    abstract fun bindJsonPlaceholderActivity(): GamePageActivity
+    @ContributesAndroidInjector(modules = arrayOf(GamePageModule::class, GamePageBuilderModule::class))
+    abstract fun bindGamePageActivity(): GamePageActivity
 
+    @ActivityScope
+    @ContributesAndroidInjector(modules = arrayOf(OtherModule::class))
+    abstract fun bindOtherPageActivity(): OtherPageActivity
 }
